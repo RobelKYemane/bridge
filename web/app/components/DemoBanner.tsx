@@ -31,7 +31,7 @@ export function DemoBanner() {
           }}
           className="rounded-md border border-amber-400 px-3 py-1.5 text-xs font-medium text-amber-900 hover:bg-amber-200"
         >
-          Reset
+          Reset demo
         </button>
       </div>
     </div>

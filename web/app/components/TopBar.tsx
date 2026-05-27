@@ -6,7 +6,6 @@ export function TopBar() {
   const branches = useBridge((s) => s.branches);
   const activeBranchId = useBridge((s) => s.activeBranchId);
   const setActiveBranch = useBridge((s) => s.setActiveBranch);
-  const resetToSeed = useBridge((s) => s.resetToSeed);
   const active = branches.find((b) => b.id === activeBranchId) ?? branches[0];
 
   return (
@@ -32,26 +31,16 @@ export function TopBar() {
           )}
         </div>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="text-right">
-          <div className="text-xs uppercase tracking-wider text-muted">Today</div>
-          <div className="text-sm font-medium">
-            {new Date().toLocaleDateString(undefined, {
-              weekday: "short",
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })}
-          </div>
+      <div className="text-right">
+        <div className="text-xs uppercase tracking-wider text-muted">Today</div>
+        <div className="text-sm font-medium">
+          {new Date().toLocaleDateString(undefined, {
+            weekday: "short",
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}
         </div>
-        <button
-          onClick={() => {
-            if (confirm("Reset all transactions and parties to seed state?")) resetToSeed();
-          }}
-          className="rounded-md border border-border px-3 py-1.5 text-xs text-muted hover:bg-background"
-        >
-          Reset demo
-        </button>
       </div>
     </header>
   );
