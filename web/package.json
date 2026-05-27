@@ -1,0 +1,26 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--max-old-space-size=2048' next dev",
+    "dev:lite": "NODE_OPTIONS='--max-old-space-size=1536' next dev --webpack --disable-source-maps",
+    "build": "next build",
+    "start": "next start",
+    "preview": "next build && next start"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zustand": "^5.0.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

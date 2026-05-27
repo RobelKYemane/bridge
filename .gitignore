@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+
+# Node
+node_modules/
+.next/
+out/
+
+# Local env / secrets
+.env*.local
+
+# Claude Code local settings (agents are kept; settings/state are personal)
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.claude/scheduled_tasks/
