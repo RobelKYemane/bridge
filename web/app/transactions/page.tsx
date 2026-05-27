@@ -21,7 +21,6 @@ export default function TransactionsPage() {
   const markOrderSettled = useBridge((s) => s.markOrderSettled);
   const rejectOrder = useBridge((s) => s.rejectOrder);
   const voidPaidOrder = useBridge((s) => s.voidPaidOrder);
-  const simulateInboundOrder = useBridge((s) => s.simulateInboundOrder);
 
   const [filter, setFilter] = useState<TxKind | "ALL">("ALL");
   const [orderFilter, setOrderFilter] = useState<OrderStatus | "all">("all");
@@ -56,12 +55,6 @@ export default function TransactionsPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => simulateInboundOrder()}
-            className="rounded-md border border-border bg-card px-3 py-2 text-sm font-medium hover:bg-background"
-          >
-            Simulate inbound order
-          </button>
           <Link href="/transactions/new/buy" className="rounded-md bg-brand px-3 py-2 text-sm font-medium text-white hover:opacity-90">
             + Buy
           </Link>

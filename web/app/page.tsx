@@ -22,8 +22,6 @@ export default function Dashboard() {
   const sellers = useBridge((s) => s.sellers);
   const buyers = useBridge((s) => s.buyers);
   const runSprint1Demo = useBridge((s) => s.runSprint1Demo);
-  const resetToSeed = useBridge((s) => s.resetToSeed);
-  const simulateInboundOrder = useBridge((s) => s.simulateInboundOrder);
   const orders = useBridge((s) => s.orders);
   const treasuryAccounts = useBridge((s) => s.treasuryAccounts);
   const depositTreasury = useBridge((s) => s.depositTreasury);
@@ -92,42 +90,19 @@ export default function Dashboard() {
         onDeposit={(id, amt, note) => depositTreasury(id, amt, note)}
       />
 
-      {transactions.length === 0 ? (
+      {transactions.length === 0 && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-dashed border-border bg-card p-4 text-sm">
           <div>
             <div className="font-medium">Sprint 1 demo</div>
             <div className="text-xs text-muted">
-              Seeds the spec scenario: BUY 1,000 BIRR @ 10 USD (Ahmed) + SELL 1,000 BIRR @ 12 USD (BuyerY → RecipientX). Expected spread: <span className="font-mono">2 USD</span>.
+              Seeds the spec scenario: BUY 1,000 BIRR @ 10 USD (Ahmed) + SELL 1,000 BIRR @ 12 USD (James → RecipientX). Expected spread: <span className="font-mono">2 USD</span>.
             </div>
           </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => simulateInboundOrder()}
-              className="rounded-md border border-border bg-card px-3 py-2 text-sm font-medium hover:bg-background"
-            >
-              Simulate inbound order
-            </button>
-            <button
-              onClick={runSprint1Demo}
-              className="rounded-md bg-brand px-3 py-2 text-sm font-medium text-white hover:opacity-90"
-            >
-              Run demo
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="flex justify-end gap-3">
           <button
-            onClick={() => simulateInboundOrder()}
-            className="text-xs text-muted hover:text-foreground"
+            onClick={runSprint1Demo}
+            className="rounded-md bg-brand px-3 py-2 text-sm font-medium text-white hover:opacity-90"
           >
-            Simulate inbound order
-          </button>
-          <button
-            onClick={resetToSeed}
-            className="text-xs text-muted hover:text-foreground"
-          >
-            Reset ledger
+            Run demo
           </button>
         </div>
       )}

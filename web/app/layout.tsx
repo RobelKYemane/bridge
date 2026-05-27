@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { DemoBanner } from "./components/DemoBanner";
 import { HydrationGate } from "./components/HydrationGate";
 import { Sidebar } from "./components/Sidebar";
 import { TopBar } from "./components/TopBar";
@@ -32,13 +33,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full" suppressHydrationWarning>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <div className="flex flex-1 flex-col">
-            <TopBar />
-            <main className="flex-1 px-8 py-8">
-              <HydrationGate>{children}</HydrationGate>
-            </main>
+        <div className="flex min-h-screen flex-col">
+          <HydrationGate>
+            <DemoBanner />
+          </HydrationGate>
+          <div className="flex flex-1">
+            <Sidebar />
+            <div className="flex flex-1 flex-col">
+              <TopBar />
+              <main className="flex-1 px-8 py-8">
+                <HydrationGate>{children}</HydrationGate>
+              </main>
+            </div>
           </div>
         </div>
       </body>
